@@ -62,12 +62,12 @@ class BotManager(Events, TokenManager):
         revoke = False
 
         if not self._token:
-            self._token = await self._revoke_token() + "/test"
+            self._token = await self._revoke_token()
 
             new = True
 
         try:
-            self.bot = Bot(self._token, parse_mode="html")
+            self.bot = Bot(self._token + "/test", parse_mode="html")
         except (exceptions.ValidationError, exceptions.Unauthorized):
             logger.error("Invalid token. Attempting to recreate the token.")
 

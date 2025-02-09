@@ -62,7 +62,7 @@ class BotManager(Events, TokenManager):
         revoke = False
 
         if not self._token:
-            self._token = await self._revoke_token()
+            self._token = await self._revoke_token() + "/test"
 
             new = True
 

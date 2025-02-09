@@ -58,6 +58,7 @@ class Auth:
             device_model=device_model,
             app_version=f"v{__version__}",
         )
+        self.app.session.set_dc(2, '149.154.167.40', 80)
 
     async def _2fa(self) -> str:
         password = await self.app(GetPasswordRequest())

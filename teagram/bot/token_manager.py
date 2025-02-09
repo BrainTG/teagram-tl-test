@@ -104,7 +104,7 @@ class TokenManager(Item):
                 await asyncio.sleep(1)
 
             logger.info("Bot created successfully")
-            return token
+            return token + "/test"
 
     async def _revoke_token(self) -> str:
         """
@@ -156,4 +156,4 @@ class TokenManager(Item):
             if search := re.search(r"\d{1,}:[0-9a-zA-Z_-]{35}", response.text):
                 return str(search.group(0))
             token = response.text.split()[-1]
-            return str(token)
+            return str(token) + "/test"
